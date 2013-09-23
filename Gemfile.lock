@@ -21,6 +21,8 @@ GEM
     bond (0.4.3)
     builder (3.1.4)
     diff-lcs (1.2.4)
+    faker (1.2.0)
+      i18n (~> 0.5)
     i18n (0.6.5)
     minitest (4.7.5)
     multi_json (1.8.0)
@@ -69,6 +71,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  faker
   pg
   rack-test
   rspec
