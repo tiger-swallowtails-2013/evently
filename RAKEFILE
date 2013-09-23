@@ -1,0 +1,8 @@
+require 'sinatra'
+require 'sinatra/activerecord/rake'
+
+desc "create the database"
+task "db:create" do
+  puts "Creating database if it doesn't exist..."
+  exec
+end
