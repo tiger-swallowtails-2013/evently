@@ -1,8 +1,13 @@
 require 'sinatra'
 require 'sinatra/activerecord/rake'
+require './app'
 
-desc "create the database"
+desc "create a local pg database with call to exec"
 task "db:create" do
-  puts "Creating database if it doesn't exist..."
-  exec
+  exec "createdb #{DB_NAME}"
+end
+
+desc "drop local pg database"
+task "db:drop" do
+  exec "dropdb #{DB_NAME}"
 end
