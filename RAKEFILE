@@ -1,7 +1,9 @@
 require 'sinatra'
 require 'sinatra/activerecord/rake'
-require './app'
+require_relative './app/controllers/app'
 
+# Use the followint to control with environment is set
+# RACK_ENV=test rake db:create
 desc "create a local pg database with call to exec"
 task "db:create" do
   exec "createdb #{DB_NAME}"
