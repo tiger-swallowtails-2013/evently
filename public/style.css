@@ -28,7 +28,7 @@ nav a {
 nav a:hover {;
   color:blue;
   border-radius: 2px;
-} 
+}
 
 
 
@@ -63,4 +63,13 @@ h1{
 
 .event:hover{
 	background-color:blue;
+}
+
+form p{
+  margin:0px;
+  padding:8px;
+}
+
+.button{
+  color=green;
 }
