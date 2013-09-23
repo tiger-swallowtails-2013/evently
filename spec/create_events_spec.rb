@@ -22,4 +22,15 @@ describe 'Create a New Event' do
     expect(Event.last.location).to eq("DBC Cave")
     expect(Event.last.datetime).to eq(DateTime.new(2013, 10, 31, 17,00,00))
   end
+
+  it "Creates a new event through form" do
+    post '/events', {
+      :title        => "Movie Night",
+      :description  => "Let's watch Inception!",
+      :location     => "DBC Meadow",
+      :datetime     => DateTime.new(2013, 10, 31, 17,00,00)
+    }
+
+    expect(Event.last.title).to eq("Movie Night")
+  end
 end
