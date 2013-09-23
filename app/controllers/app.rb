@@ -30,7 +30,7 @@ get '/login' do
   erb :login
 end
 
-post 'login' do
+post '/login' do
 
 end
 
