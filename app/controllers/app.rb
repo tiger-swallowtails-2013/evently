@@ -1,20 +1,14 @@
 $LOAD_PATH.unshift(File.expand_path("./app"))
 $LOAD_PATH.unshift(File.expand_path("."))
 
-require 'sinatra'
 require 'config/main'
-require 'sinatra/activerecord'
-require 'app/models/user'
-require 'app/models/event'
-require 'tux' unless settings.production?
 require 'date'
-
-ENV['RACK_ENV'] == 'test' ? DB_NAME = "eventlydb_test" : DB_NAME = "eventlydb"
-ActiveRecord::Base.establish_connection(ENV["DATABASE_URL"] || "postgresql://localhost/#{DB_NAME}")
+enable :sessions
 
 get '/' do
 	erb :index
 end
+
 
 
 get '/create_event' do
@@ -31,3 +25,12 @@ post '/create_event' do
     )
 
 end
+
+get '/login' do
+  erb :login
+end
+
+post 'login' do
+
+end
+
