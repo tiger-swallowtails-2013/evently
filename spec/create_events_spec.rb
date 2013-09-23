@@ -24,13 +24,17 @@ describe 'Create a New Event' do
   end
 
   it "Creates a new event through form" do
-    post '/events', {
+    post '/create_event', {
       :title        => "Movie Night",
-      :description  => "Let's watch Inception!",
+      :desc         => "Let's watch Inception!",
       :location     => "DBC Meadow",
-      :datetime     => DateTime.new(2013, 10, 31, 17,00,00)
+      :date         => '2013-10-31',
+      :time         => "15:00" 
     }
 
     expect(Event.last.title).to eq("Movie Night")
+    expect(Event.last.description).to eq("Let's watch Inception!")
+    expect(Event.last.location).to eq("DBC Meadow")
+    expect(Event.last.datetime).to eq(DateTime.new(2013,10,31,15,00,00))
   end
 end
