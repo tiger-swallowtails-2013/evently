@@ -1,6 +1,7 @@
+$LOAD_PATH << '.'
 require 'sinatra'
 require 'sinatra/activerecord/rake'
-require './app'
+require 'app/controllers/app'
 
 desc "create a local pg database with call to exec"
 task "db:create" do
