@@ -39,7 +39,12 @@ nav a:hover {;
   border-radius: 2px;
 }
 
-
+p{
+  margin-left:20px;
+  font-weight:normal;
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+  font-size:normal;
+}
 
 h1, h2, h3, h4{
   padding-left:20px;
@@ -53,7 +58,7 @@ h1, h2, h3, h4{
 
 .guide{
 	padding:8px;
-	margin:30px;
+	margin-left:20px;
 	font-weight:normal;
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	font-size:normal;
