@@ -2,6 +2,7 @@ require 'date'
 ENV['RACK_ENV'] = 'test'
 require 'rack/test'
 require_relative './../app/models/event'
+require_relative './../app/models/guest'
 
 describe 'Create a New Event' do
   include Rack::Test::Methods
@@ -38,3 +39,42 @@ describe 'Create a New Event' do
     expect(Event.last.datetime).to eq(DateTime.new(2013,10,31,15,00,00))
   end
 end
+
+describe 'Guests can RSVP' do
+  include Rack::Test::Methods
+
+  def app
+    Sinatra::Application
+  end
+  it "Creates a new guest with valid information" do
+    new_guest = Guest.create(
+      :name => 'John',
+      :email=> 'john@gmail.com',
+      :rsvp? => true)
+    new_guest.event = Event.first
+    new_guest.save
+
+  expect(Guest.last.name).to eq('John')
+  expect(Guest.last.email).to eq('john@gmail.com')
+  expect(Guest.last.rsvp?).to eq(true)
+  expect(Guest.last.event).to eq(Event.first)
+  end
+
+  it "Creates a new guest with valid information through form" do
+    post "/events/#{Event.last.id}/", {
+      :name => 'Michael',
+      :email => 'Michael@gmail.com',
+      :rsvp => 'false'
+    }
+
+  expect(Guest.last.name).to eq('Michael')
+  expect(Guest.last.email).to eq('Michael@gmail.com')
+  expect(Guest.last.rsvp?).to eq(false)
+  expect(Guest.last.event).to eq(Event.last)
+  end
+
+
+
+
+end
+
