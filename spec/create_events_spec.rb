@@ -3,6 +3,7 @@ ENV['RACK_ENV'] = 'test'
 require 'rack/test'
 require_relative './../app/models/event'
 require_relative './../app/models/guest'
+require_relative './../app/models/user'
 
 describe 'Create a New Event' do
   include Rack::Test::Methods
@@ -12,16 +13,24 @@ describe 'Create a New Event' do
   end
 
   it "Creates a new event with valid information" do
-    Event.create(
+    event = Event.new(
       :title        => "DBC Hackathon",
       :description  => "Tiger Swallowtails hack together an awesome app!",
       :location     => "DBC Cave",
       :datetime     => DateTime.new(2013, 10, 31, 17,00,00)
     )
+    User.create(
+      :firstname => "Max",
+      :lastname => "Johnson",
+      :email => "max@gmail.com",
+      :password => 'pw')
+    event.user = User.last
+    event.save
     expect(Event.last.title).to eq("DBC Hackathon")
     expect(Event.last.description).to eq("Tiger Swallowtails hack together an awesome app!")
     expect(Event.last.location).to eq("DBC Cave")
     expect(Event.last.datetime).to eq(DateTime.new(2013, 10, 31, 17,00,00))
+    expect(Event.last.user).to eq(User.last)
   end
 
   it "Creates a new event through form" do
@@ -30,7 +39,7 @@ describe 'Create a New Event' do
       :desc         => "Let's watch Inception!",
       :location     => "DBC Meadow",
       :date         => '2013-10-31',
-      :time         => "15:00" 
+      :time         => "15:00"
     }
 
     expect(Event.last.title).to eq("Movie Night")
