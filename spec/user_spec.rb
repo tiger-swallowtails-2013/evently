@@ -34,7 +34,16 @@ describe "User SignUp" do
   end
 end
 
+# describe "User session" do
+#   it "should not login invalid user" do
+#     post '/login', {
+#       :email => Faker::Internet.email,
+#       :password => Faker::Lorem.words(1)
+#     }
+#     expect(session[:user_id])
 
+#   end
+# end
 
 
 
