@@ -26,6 +26,23 @@ post '/create_event' do
 
 end
 
+get '/events/:event_id/rsvp' do
+  @event = Event.find(params[:event_id])
+  erb :new_rsvp
+end
+
+post '/events/:event_id/' do
+  event = Event.find(params[:event_id])
+  guest = Guest.new(
+    :name => params[:name],
+    :email => params[:email],
+    :rsvp? => params[:rsvp] == 'true')
+  guest.event = event
+  guest.save
+  redirect '/'
+end
+
+
 get '/login' do
   erb :login
 end
