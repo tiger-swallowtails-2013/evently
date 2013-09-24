@@ -37,6 +37,11 @@ nav li{
   border-right: 1px solid rgba(0,0,0,0.2);
 }
 
+nav li#name{
+  width:450px;
+  text-align:right;
+}
+
 nav a:hover {;
   color:blue;
   border-radius: 2px;
@@ -106,4 +111,15 @@ form p{
   background-color:blue;
   border-color:white;
   color:white;
+}
+
+input{
+  font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+}
+
+input:focus{
+  background-color:7BBCE8;
+  font-style:italic;
+  font-family:Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+  color:66549C;
 }
