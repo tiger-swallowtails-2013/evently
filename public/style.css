@@ -3,11 +3,14 @@ body{
 }
 
 a{
-  color:66549C;
-  text-decoration: none;
+  text-decoration:none;
 }
 
-a:visited{
+nav a{
+  color:66549C;
+}
+
+nav a:visited{
   color:66549C;
 }
 
@@ -47,7 +50,7 @@ p{
 }
 
 h1, h2, h3, h4{
-  padding-left:20px;
+  margin-left:20px;
 	text-transform: lowercase;
 	font-weight:normal;
 	font-family:Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;

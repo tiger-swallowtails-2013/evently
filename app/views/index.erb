@@ -1,20 +1,17 @@
 <% if current_user %>
-
-<%= "<h3>Welcome, #{current_user.firstname} #{current_user.lastname}</h3>" if current_user %>
+  <%= "<h3>Welcome, #{current_user.firstname} #{current_user.lastname}</h3>"%>
+  <% if current_user.events.empty? %>
+    <a href='/events/create'><p class='event'>Create a new event!</p></a>
+  <% else %>
+    <% current_user.events.each do |event| %>
+    <a href='/events/<%= event.id %>'>
+      <p class='event'>
+        <%= event.title %> on <%= event.datetime %>
+      </p>
+    </a>
+    <% end %>
+  <% end %>
 <% else %>
-<h3>Event.ly is your one-stop home for online events</h3>
+  <h3>Event.ly is your one-stop home for online events</h3>
+  <a href="/signup"><p class="event">Sign up today!</p></a>
 <% end %>
-<p class="event">It's an event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
-<p class="event">Another event!</p>
