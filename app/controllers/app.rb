@@ -14,7 +14,8 @@ get '/signup' do
 end
 
 post '/signup' do
-  User.create(params)
+  @user = User.create(params)
+  start_session
   redirect '/'
 end
 
@@ -47,6 +48,12 @@ post '/events/:event_id/' do
   guest.event = event
   guest.save
   redirect '/'
+end
+
+get '/events/:event_id/attendees' do
+  @event = Event.find(params[:event_id])
+
+  erb :events
 end
 
 
