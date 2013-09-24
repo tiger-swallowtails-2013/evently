@@ -3,7 +3,12 @@ body{
 }
 
 a{
+  color:66549C;
   text-decoration: none;
+}
+
+a:visited{
+  color:66549C;
 }
 
 nav ul {
