@@ -2,7 +2,7 @@ $LOAD_PATH.unshift(File.expand_path("./app"))
 $LOAD_PATH.unshift(File.expand_path("."))
 require 'config/main'
 require 'app/controllers/session_helper'
-
+require 'date'
 enable :sessions
 
 get '/' do
@@ -14,8 +14,23 @@ get '/signup' do
 end
 
 post '/signup' do
-  p params.inspect
   User.create(params)
+  redirect '/'
+end
+
+
+get '/create_event' do
+  erb :create_events
+end
+
+post '/create_event' do
+  datetime_ary = params[:date].split('-') + params[:time].split(':')
+  Event.create(
+    :title => params[:title],
+    :description => params[:desc],
+    :location => params[:location],
+    :datetime => DateTime.new(*datetime_ary.map{|e| e.to_i})
+    )
 end
 
 get '/login' do
@@ -37,3 +52,4 @@ post '/logout' do
   logout
   redirect '/'
 end
+

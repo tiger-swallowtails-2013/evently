@@ -2,6 +2,7 @@ require 'pathname'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'app/models/user'
+require 'app/models/event'
 require 'tux' unless settings.production?
 
 APP_ROOT = Pathname.new(File.expand_path(File.join(File.dirname(__FILE__), '..')))
