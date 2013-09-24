@@ -1,0 +1,16 @@
+<div class="guide">
+<p>Event Details:</p>
+<%= @event.title %><br />
+<p>When:</p>
+<%= @event.datetime %><br />
+<p>What:</p>
+<%= @event.description %><br />
+<p>Where:</p>
+<%= @event.location %><br />
+<p>Guest List</p>
+
+<% @event.guests.each do |guest| %>
+<%= guest.name %> <%= "will be there" if guest.rsvp? %><br/>
+<% end %>
+</div>
+

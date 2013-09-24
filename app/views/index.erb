@@ -1,5 +1,9 @@
-<%= "Welcome, #{current_user.firstname} #{current_user.lastname}" if current_user %>
-<p class="guide">Event.ly is your one-stop home for online events.</p>
+<% if current_user %>
+
+<%= "<h3>Welcome, #{current_user.firstname} #{current_user.lastname}</h3>" if current_user %>
+<% else %>
+<h3>Event.ly is your one-stop home for online events</h3>
+<% end %>
 <p class="event">It's an event!</p>
 <p class="event">Another event!</p>
 <p class="event">Another event!</p>
