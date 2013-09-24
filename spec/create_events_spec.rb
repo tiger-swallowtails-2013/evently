@@ -34,13 +34,13 @@ describe 'Create a New Event' do
   end
 
   it "Creates a new event through form" do
-    post '/create_event', {
+    post '/events/create', {
       :title        => "Movie Night",
       :desc         => "Let's watch Inception!",
       :location     => "DBC Meadow",
       :date         => '2013-10-31',
       :time         => "15:00"
-    }
+    }, 'rack.session' => {user_id:User.last.id}
 
     expect(Event.last.title).to eq("Movie Night")
     expect(Event.last.description).to eq("Let's watch Inception!")
@@ -70,7 +70,7 @@ describe 'Guests can RSVP' do
   end
 
   it "Creates a new guest with valid information through form" do
-    post "/events/#{Event.last.id}/", {
+    post "/events/#{Event.last.id}", {
       :name => 'Michael',
       :email => 'Michael@gmail.com',
       :rsvp => 'false'

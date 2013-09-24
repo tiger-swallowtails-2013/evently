@@ -20,18 +20,20 @@ post '/signup' do
 end
 
 
-get '/create_event' do
+get '/events/create' do
   erb :create_events
 end
 
-post '/create_event' do
+post '/events/create' do
   datetime_ary = params[:date].split('-') + params[:time].split(':')
-  Event.create(
+  @event = Event.create(
     :title => params[:title],
     :description => params[:desc],
     :location => params[:location],
-    :datetime => DateTime.new(*datetime_ary.map{|e| e.to_i})
+    :datetime => DateTime.new(*datetime_ary.map{|e| e.to_i}),
+    :user_id => current_user.id
     )
+  redirect "/events/#{@event.id}"
 end
 
 get '/events/:event_id/rsvp' do
@@ -39,20 +41,24 @@ get '/events/:event_id/rsvp' do
   erb :new_rsvp
 end
 
-post '/events/:event_id/' do
-  event = Event.find(params[:event_id])
-  guest = Guest.new(
+post '/events/:event_id' do
+  @event = Event.find(params[:event_id].to_i)
+  @guest = Guest.new(
     :name => params[:name],
     :email => params[:email],
-    :rsvp? => params[:rsvp] == 'true')
-  guest.event = event
-  guest.save
+    :rsvp? => (params[:rsvp] == 'true'))
+  @guest.event = @event
+  @guest.save
   redirect '/'
 end
 
-get '/events/:event_id/attendees' do
-  @event = Event.find(params[:event_id])
+get '/oops' do
+  erb :oops
+end
 
+get '/events/:event_id' do
+  @event = Event.find(params[:event_id])
+  redirect '/oops' unless @event.user == current_user
   erb :events
 end
 
