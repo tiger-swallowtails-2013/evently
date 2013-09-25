@@ -1,7 +1,7 @@
 $LOAD_PATH.unshift(File.expand_path("./app"))
 $LOAD_PATH.unshift(File.expand_path("."))
 require 'config/main'
-require 'app/controllers/session_helper'
+require 'controllers/session_helper'
 require 'date'
 enable :sessions
 
@@ -25,7 +25,7 @@ get '/events/create' do
 end
 
 post '/events/create' do
-  p datetime_ary = params[:date].split(/[\/-]/) + params[:time].split(':')
+  datetime_ary = params[:date].split(/[\/-]/) + params[:time].split(':')
   @event = Event.create(
     :title => params[:title],
     :description => params[:desc],

@@ -113,6 +113,14 @@ form p{
   color:white;
 }
 
+.hidden{
+  display:none;
+}
+
+table.main{
+  opacity:0.5;
+}
+
 input{
   font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 }
