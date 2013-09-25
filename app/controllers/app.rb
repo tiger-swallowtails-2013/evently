@@ -52,6 +52,11 @@ post '/events/:event_id' do
   redirect '/'
 end
 
+get '/events/:event_id/invite' do
+  @event = Event.find(params[:event_id])
+  erb :invite
+end
+
 get '/oops' do
   erb :oops
 end
