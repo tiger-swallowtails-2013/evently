@@ -25,7 +25,7 @@ get '/events/create' do
 end
 
 post '/events/create' do
-  datetime_ary = params[:date].split('-') + params[:time].split(':')
+  p datetime_ary = params[:date].split(/[\/-]/) + params[:time].split(':')
   @event = Event.create(
     :title => params[:title],
     :description => params[:desc],
