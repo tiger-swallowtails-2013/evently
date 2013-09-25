@@ -16,6 +16,11 @@ task "db:drop" do
   exec "dropdb #{DB_NAME}"
 end
 
+desc "populate database with seed data"
+task "db:seed" do
+  require_relative "./db/seeds.rb"
+end
+
 begin
   require 'jasmine'
   load 'jasmine/tasks/jasmine.rake'
