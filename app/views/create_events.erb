@@ -1,9 +1,22 @@
-
 <form class="guide" method='post' action='/events/create'>
-  <label>Title:</label><input type='text' name='title' required><br/>
-  <label>Description:</label><input type='text' name='desc'><br/>
-  <label>Date:</label><input type='date' name='date' required><br/>
-  <label>Time:</label><input type='time' name='time' required>  <br/>
-  <label>Location:</label><input type='text' name='location'><br/>
-  <input type='submit'>
+<table>
+  <tr>
+    <td>Title:</td><td><input type='text' name='title' required></td>
+  </tr>
+  <tr>
+    <td>Description:</td><td><input type='text' name='desc'></td>
+  </tr>
+  <tr>
+    <td>Date (yyyy-mm-dd):</td><td><input type='date' name='date' required></td>
+  </tr>
+  <tr>
+    <td>Time:</td><td><input type='time' name='time' required></td>
+  </tr>
+  <tr>
+    <td>Location:</td><td><input type='text' name='location'></td>
+  </tr>
+  <tr>
+    <td colspan=2><input type='submit'></td>
+  </tr>
+</table>
 </form>

@@ -17,7 +17,11 @@
 				<a href="/signup">Sign Up</a>
 			  <% end %>
 			</li>
+			<% if current_user %>
+			<li id="name"><a href="/"><%= current_user.firstname + ' ' + current_user.lastname %></a></li>
+			<% else %>
 			<li><a href="/">Event.ly</a></li>
+			<% end %>
 		</ul>
 	</nav>
 	<%= yield %>
