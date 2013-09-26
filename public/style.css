@@ -1,5 +1,5 @@
 body{
-	background:url(http://rlv.zcache.com/fancy_letter_e_sticker-rbf5213c5d61540ce9bd1e0cc5dc677f3_v9waf_8byvr_512.jpg) center center no-repeat fixed;
+	background:url(images/evently.png) center center no-repeat fixed;
 }
 
 a{
@@ -115,10 +115,6 @@ form p{
 
 .hidden{
   display:none;
-}
-
-table.main{
-  opacity:0.5;
 }
 
 input{
