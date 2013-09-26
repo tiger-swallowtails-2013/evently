@@ -88,6 +88,10 @@ h1, h2, h3, h4{
 	background-color:blue;
 }
 
+.event:hover a {
+  color:white;
+}
+
 form p{
   margin:0px;
   padding:8px;
@@ -133,16 +137,16 @@ a.show {
   display: block;
 }
 
+a.hide {
+  float: right;
+}
+
 p.hide {
   display: none;
 }
 
 p.show {
   display: block;
-}
-
-a.show {
-  float: right;
 }
 
 .event-hidden {

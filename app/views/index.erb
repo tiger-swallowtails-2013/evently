@@ -5,12 +5,12 @@
   <% else %>
     <% current_user.events.each do |event| %>
     <a href='/events/<%= event.id %>'>
-      <p class='event' id=<%=event.id>>
+      <p class='event' id='<%=event.id %>'>
         <%= event.title %> on <%= event.datetime %>
-        <a href='#' class='hide' id=<%=event.id%>>Hide</a>
+        <a href='javascript:void(0)' class='hide' id='<%=event.id%>'>Hide</a>
       </p>
-      <p class='event-hidden' id=hidden-<%=event.id%>><%= event.title %>
-        <a href="#">Show</a>
+      <p class='event-hidden' id='hidden-<%=event.id%>'><%= event.title %>
+        <a href='javascript:void(0)' class='show'>Show</a>
       </p>
     </a>
     <% end %>

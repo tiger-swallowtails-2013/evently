@@ -1,42 +1,27 @@
 function hideFunction(){
-  var element = this;
-  var id = element.id
-  var parent = element.parentNode;
-  console.log(id)
-  console.log(element)
-  console.log(parent)
-  parent.classList.add("hide")
- 
-  showFunction(id)
- 
+  var parent = this.parentNode;
+  var id = parent.id;
+  parent.classList.add("hide");
+  parent.classList.remove("show");
+  showFunction(id);
+  parent.id = "hidden-" + id;
 }
  
 function showFunction(id){
-  console.log(id)
-  id = "hidden-" + id
-  console.log(id)
-  var elem = document.getElementById(id)
-  console.log(elem)
-  elem.classList.remove("hide")
-  elem.classList.add("show")
- 
+  var elem = document.getElementById("hidden-" + id);
+  elem.classList.add("show");
+  elem.classList.remove("hide");
+  elem.id = id;
 }
  
 var hide_links = document.getElementsByClassName("hide");
+var show_links = document.getElementsByClassName("show");
 
-function listen(links) {
+function listen(links, doFunction) {
   for (var i=0; i<links.length; i++) {
-    links[i].addEventListener("click",hideFunction,false);
+    links[i].addEventListener("click",doFunction,false);
   }
-};
+}
 
-var links2 = document.getElementsByClassName("show");
-function listen2(links) {
-  for (var i=0; i<links.length; i++) {
-    links[i].addEventListener("click",hideFunction,false);
-  }
-};
-
- 
-listen(hide_links);
-listen(links2)
+listen(hide_links, hideFunction);
+listen(show_links, hideFunction);
