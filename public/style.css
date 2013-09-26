@@ -72,7 +72,7 @@ h1, h2, h3, h4{
 	font-size:normal;
 }
 
-.event{
+.event, .event-hidden {
 	padding:8px;
 	margin:30px;
 	font-weight:normal;
@@ -122,4 +122,26 @@ input:focus{
   font-style:italic;
   font-family:Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
   color:66549C;
+}
+
+a.show {
+  float: right;
+  display: block;
+}
+
+p.hide {
+  display: none;
+}
+
+p.show {
+  display: block;
+}
+
+a.show {
+  float: right;
+}
+
+.event-hidden {
+  display: none;
+  width: 500px;
 }
