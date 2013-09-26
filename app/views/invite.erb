@@ -1,0 +1,12 @@
+<h3>Email Invitations</h3>
+<p size='small'>Your email will look as follows:</p>
+<p>
+<%= @event.user.firstname + ' ' + @event.user.lastname %> has sent you an invitation!</br>
+<%= @event.title %></br>
+<%= @event.description %></br>
+<%= @event.datetime %></p>
+
+<form class="guide" method="post">
+	<input type="text" class="email">
+	<input type="submit" class="button" value="Send Emails">
+</form>
