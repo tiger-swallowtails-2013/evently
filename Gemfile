@@ -9,5 +9,7 @@ group :development, :test do
   gem 'rack-test'
   gem 'shotgun'
   gem 'tux'
+  gem 'jasmine'
+  gem 'faker'
 end
 
