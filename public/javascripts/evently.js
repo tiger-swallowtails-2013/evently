@@ -22,11 +22,21 @@ function showFunction(id){
  
 }
  
-var links = document.getElementsByClassName("hide");
+var hide_links = document.getElementsByClassName("hide");
+
 function listen(links) {
   for (var i=0; i<links.length; i++) {
     links[i].addEventListener("click",hideFunction,false);
   }
 };
+
+var links2 = document.getElementsByClassName("show");
+function listen2(links) {
+  for (var i=0; i<links.length; i++) {
+    links[i].addEventListener("click",hideFunction,false);
+  }
+};
+
  
-listen(links);
+listen(hide_links);
+listen(links2)

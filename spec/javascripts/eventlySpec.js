@@ -25,7 +25,7 @@ var p_showing, a_hide, p_hidden, a_show;
 
 
 
-  it("COME UP WITH WHAT THIS IS TESTING!", function(){
+  it("should add hide to classlist on click", function(){
     listen([a_hide]);
     a_hide.dispatchEvent(new Event('click'));
     expect(p_showing.classList.contains('hide')).toBeTruthy();
