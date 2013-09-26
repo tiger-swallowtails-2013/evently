@@ -14,21 +14,27 @@ var p_showing, a_hide, p_hidden, a_show;
   beforeEach(function(){
     p_showing = addToImaginaryDom('p', 'event', '1');
     a_hide = addToImaginaryDom('a', 'hide', '1', p_showing);
-    p_hidden = addToImaginaryDom('p', 'event-hidden', 'hidden-1');
-    a_show = addToImaginaryDom('a', 'show', 'shown-1', p_hidden);
-
+    p_hiding = addToImaginaryDom('p', 'event-hidden', 'hidden-1');
+    a_show = addToImaginaryDom('a', 'show', '1', p_hiding);
   });
 
-  //it("should add event listener to hide link on click", function(){
+  afterEach(function() {
+    document.body.removeChild(p_showing);
+    document.body.removeChild(p_hiding);
+  });
 
-  //});
-
-
-
-  it("should add hide to classlist on click", function(){
-    listen([a_hide]);
+  it("should add hide to p_showing classlist when user clicks hide", function(){
+    listen([a_hide]); // hides p_showing and shows p_hiding!
     a_hide.dispatchEvent(new Event('click'));
     expect(p_showing.classList.contains('hide')).toBeTruthy();
+    expect(p_hiding.classList.contains('show')).toBeTruthy();
+
+    listen([a_show]); // shows p_showing and hides p_hiding
+    a_show.dispatchEvent(new Event('click'));
+    expect(p_hiding.classList.contains('hide')).toBeTruthy();
+    expect(p_showing.classList.contains('show')).toBeTruthy();
+
   });
+
 
 });

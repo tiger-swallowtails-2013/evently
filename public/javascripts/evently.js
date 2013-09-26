@@ -17,11 +17,11 @@ function showFunction(id){
 var hide_links = document.getElementsByClassName("hide");
 var show_links = document.getElementsByClassName("show");
 
-function listen(links, doFunction) {
+function listen(links) {
   for (var i=0; i<links.length; i++) {
-    links[i].addEventListener("click",doFunction,false);
+    links[i].addEventListener("click",hideFunction,false);
   }
 }
 
-listen(hide_links, hideFunction);
-listen(show_links, hideFunction);
+listen(hide_links);
+listen(show_links);
