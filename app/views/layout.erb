@@ -19,12 +19,13 @@
 			  <% end %>
 			</li>
 			<% if current_user %>
-			<li id="name"><a href="/"><%= current_user.firstname + ' ' + current_user.lastname %></a></li>
+			  <li id="name"><a href="/"><%= current_user.firstname + ' ' + current_user.lastname %></a></li>
 			<% else %>
-			<li><a href="/">Event.ly</a></li>
+			  <li><a href="/">Event.ly</a></li>
 			<% end %>
 		</ul>
 	</nav>
 	<%= yield %>
+	<script type="text/javascript" src="/javascripts/evently.js"></script>
 </body>
 </html>

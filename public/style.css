@@ -72,9 +72,9 @@ h1, h2, h3, h4{
 	font-size:normal;
 }
 
-.event{
-  padding:8px;
-	margin-left:30px;
+.event, .event-hidden {
+	padding:8px;
+	margin:30px;
 	font-weight:normal;
 	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
 	background-color:7BBCE8;
@@ -86,6 +86,10 @@ h1, h2, h3, h4{
 
 .event:hover{
 	background-color:blue;
+}
+
+.event:hover a {
+  color:white;
 }
 
 form p{
@@ -126,4 +130,26 @@ input:focus{
   font-style:italic;
   font-family:Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
   color:66549C;
+}
+
+a.show {
+  float: right;
+  display: block;
+}
+
+a.hide {
+  float: right;
+}
+
+p.hide {
+  display: none;
+}
+
+p.show {
+  display: block;
+}
+
+.event-hidden {
+  display: none;
+  width: 500px;
 }
