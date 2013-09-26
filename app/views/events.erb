@@ -12,6 +12,7 @@
 <% @event.guests.each do |guest| %>
 <%= guest.name %> <%= "[\u2713]" if guest.rsvp? %><br/>
 <% end %>
+<p><a href="/events/<%=@event.id%>/invite">Send Invitations</a></p>
 </p>
 </div>
 
