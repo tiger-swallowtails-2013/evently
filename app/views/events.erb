@@ -20,10 +20,11 @@
   <div class="map-div"
     <div id="map">
       <script>
-        var map = L.map('map').setView([37.78, -122.41], 13);
+        var map = L.map('map').setView([<%=@coords[:latitude]%>, <%=@coords[:longitude]%>], 13);
         L.tileLayer('http://{s}.tile.cloudmade.com/950091b358f4414d81a9c6f5044d082c/997/256/{z}/{x}/{y}.png', {
           maxZoom: 18
         }).addTo(map);
+        var marker = L.marker([<%=@coords[:latitude]%>, <%=@coords[:longitude]%>]).addTo(map);
       </script>
     </div>
   </div>
