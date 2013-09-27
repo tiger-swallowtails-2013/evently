@@ -3,6 +3,7 @@ gem 'sinatra'
 gem 'sinatra-activerecord'
 gem 'pg'
 gem 'faker'
+gem 'geocoder'
 
 group :development, :test do
   gem 'rspec'
