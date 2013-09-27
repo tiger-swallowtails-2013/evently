@@ -1,8 +1,11 @@
 $LOAD_PATH.unshift(File.expand_path("./app"))
 $LOAD_PATH.unshift(File.expand_path("."))
 require 'config/main'
+require 'geocoder'
 require 'controllers/session_helper'
+require 'controllers/event_helper'
 require 'date'
+
 enable :sessions
 
 get '/' do
@@ -18,7 +21,6 @@ post '/signup' do
   start_session
   redirect '/'
 end
-
 
 get '/events/create' do
   erb :create_events
@@ -64,6 +66,7 @@ end
 get '/events/:event_id' do
   @event = Event.find(params[:event_id])
   redirect '/oops' unless @event.user == current_user
+  @coords = geo_lookup(@event.location)
   erb :events
 end
 

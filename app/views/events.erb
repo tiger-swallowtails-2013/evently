@@ -1,18 +1,31 @@
-<div class="guide">
-<h3>Event Details:</h3>
-<p><%= @event.title %></p>
-<h3>When:</h3>
-<p><%= @event.datetime %></p>
-<h3>What:</h3>
-<p><%= @event.description %></p>
-<h3>Where:</h3>
-<p><%= @event.location %></p>
-<h3>Guest List</h3>
-<p>
-<% @event.guests.each do |guest| %>
-<%= guest.name %> <%= "[\u2713]" if guest.rsvp? %><br/>
-<% end %>
-<p><a href="/events/<%=@event.id%>/invite">Send Invitations</a></p>
-</p>
+ <div class="container">
+   <div class="guide guide-event">
+    <h3>Event Details:</h3>
+    <p><%= @event.title %></p>
+    <h3>When:</h3>
+    <p><%= @event.datetime %></p>
+    <h3>What:</h3>
+    <p><%= @event.description %></p>
+    <h3>Where:</h3>
+    <p><%= @event.location %> <%= @event.zipcode %></p>
+    <h3>Guest List</h3>
+    <p>
+    <% @event.guests.each do |guest| %>
+    <%= guest.name %> <%= "[\u2713]" if guest.rsvp? %><br/>
+    <% end %>
+    <p><a href="/events/<%=@event.id%>/invite">Send Invitations</a></p>
+    </p>
+  </div>
+  
+  <div class="map-div"
+    <div id="map">
+      <script>
+        var map = L.map('map').setView([<%=@coords[:latitude]%>, <%=@coords[:longitude]%>], 13);
+        L.tileLayer('http://{s}.tile.cloudmade.com/950091b358f4414d81a9c6f5044d082c/997/256/{z}/{x}/{y}.png', {
+          maxZoom: 18
+        }).addTo(map);
+        var marker = L.marker([<%=@coords[:latitude]%>, <%=@coords[:longitude]%>]).addTo(map);
+      </script>
+    </div>
+  </div>
 </div>
-
