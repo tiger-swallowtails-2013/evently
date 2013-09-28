@@ -64,7 +64,19 @@ h1, h2, h3, h4{
 	font-style:italic;
 }
 
+<<<<<<< HEAD
+.guide{
+  padding:8px;
+	margin-left:20px;
+	font-weight:normal;
+	font-family: Calibri, Candara, Segoe, "Segoe UI", Optima, Arial, sans-serif;
+	font-size:normal;
+}
+
+.event, .event-hidden, .preview {
+=======
 .event, .event-hidden {
+>>>>>>> 25bb6b73cfa5867d5b9b16b73ce5fb0caf33c82f
 	padding:8px;
 	margin:30px;
 	font-weight:normal;
@@ -146,6 +158,19 @@ p.show {
   width: 500px;
 }
 
+.plus_button {
+  height: 1.25em;
+  width: 1.25em;
+}
+
+.x_button {
+  position: absolute;
+  right: 45px;
+  height: .75em;
+  width: .75em;
+}
+
+
 .guide {
   padding:8px;
   margin-left:20px;
@@ -173,7 +198,8 @@ p.show {
   width:50%;
 }
 
-#map { 
+#map {
   height: 400px;
-  width: 400px; 
+  width: 400px;
 }
+
