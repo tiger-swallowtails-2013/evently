@@ -23,7 +23,7 @@ var p_showing, a_hide, p_hidden, a_show;
     document.body.removeChild(p_hiding);
   });
 
-  it("should add hide to p_showing classlist when user clicks hide", function(){
+  xit("should add hide to p_showing classlist when user clicks hide", function(){
     listen([a_hide]); // hides p_showing and shows p_hiding!
     a_hide.dispatchEvent(new Event('click'));
     expect(p_showing.classList.contains('hide')).toBeTruthy();
